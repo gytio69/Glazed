@@ -1,0 +1,5 @@
+accessWidener v2 named
+
+# Access wideners for SpawnerFarm addon
+accessible field net/minecraft/client/MinecraftClient player Lnet/minecraft/client/network/ClientPlayerEntity;
+accessible field net/minecraft/client/MinecraftClient interactionManager Lnet/minecraft/client/network/ClientPlayerInteractionManager;
