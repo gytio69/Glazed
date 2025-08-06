@@ -2,6 +2,17 @@
 
 **SpawnerFarm** is a comprehensive Minecraft Meteor Client addon that automates skeleton spawner farming with advanced enemy evasion capabilities. This addon integrates with Baritone for intelligent pathfinding and provides a complete farming solution.
 
+## ⚠️ Important: Minecraft Version Compatibility
+
+**This addon is built for Minecraft 1.21.1** because that's the latest version that Meteor Client officially supports (version 0.5.8). While you may want 1.21.4 compatibility, Meteor Client hasn't released a 1.21.4 version yet. 
+
+However, **this addon will likely work fine on 1.21.4 servers** when used with:
+- Minecraft 1.21.1 client 
+- Meteor Client 0.5.8 (for 1.21.1)
+- This SpawnerFarm addon
+
+This is a common setup in the Minecraft modding community - using a slightly older client version that's compatible with newer server versions.
+
 ## 🎯 Features
 
 - **Automatic Spawner Detection**: Uses Baritone to automatically find nearby spawners or accepts manual coordinates
@@ -14,11 +25,11 @@
 
 ## 📋 Requirements
 
-- **Minecraft**: 1.21.4
-- **Fabric Loader**: 0.16.9 or newer
-- **Fabric API**: 0.110.5+1.21.4 or compatible
-- **Meteor Client**: 0.5.8-SNAPSHOT or compatible
-- **Baritone**: 1.10.2 or compatible
+- **Minecraft**: 1.21.1 (works on 1.21.4 servers)
+- **Fabric Loader**: 0.16.0 or newer
+- **Fabric API**: 0.102.0+1.21.1 or compatible
+- **Meteor Client**: 0.5.8-SNAPSHOT (for 1.21.1)
+- **Baritone**: 1.21.1-SNAPSHOT (comes with Meteor)
 - **Java**: 21 or newer
 
 ## 🛠️ Installation Instructions (For Non-Coders)

@@ -26,16 +26,19 @@ repositories {
 }
 
 dependencies {
-    // Minecraft 1.21.4 as requested
-    minecraft("com.mojang:minecraft:1.21.4")
-    mappings("net.fabricmc:yarn:1.21.4+build.1:v2")
-    modImplementation("net.fabricmc:fabric-loader:0.16.12")
+    // Use 1.21.1 versions (what actually exists for Meteor Client)
+    minecraft("com.mojang:minecraft:1.21.1")
+    mappings("net.fabricmc:yarn:1.21.1+build.3:v2")
+    modImplementation("net.fabricmc:fabric-loader:0.16.0")
     
-    // Fabric API for 1.21.4
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.110.5+1.21.4")
+    // Fabric API for 1.21.1
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.102.0+1.21.1")
     
-    // Skip Meteor Client deps for now - build without them
-    // You'll install Meteor Client 0.5.8 separately as a mod
+    // Meteor Client - using actual available version
+    modImplementation("meteordevelopment:meteor-client:0.5.8-SNAPSHOT")
+    
+    // Baritone (Meteor-specific version)
+    modImplementation("meteordevelopment:baritone:1.21.1-SNAPSHOT")
     
     implementation("com.google.code.gson:gson:2.10.1")
 }

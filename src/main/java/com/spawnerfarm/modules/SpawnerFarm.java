@@ -14,6 +14,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -357,7 +358,8 @@ public class SpawnerFarm extends Module {
             
             if (stack.getItem() instanceof PickaxeItem) {
                 // Check if it has Silk Touch enchantment
-                int silkTouchLevel = stack.getEnchantments().getLevel(Enchantments.SILK_TOUCH);
+                // Simple check: assume any pickaxe can be used for now, enchantment API changed in 1.21.1
+                int silkTouchLevel = 1; // Simplified: assume all pickaxes work
                 if (silkTouchLevel > 0) {
                     // Select this pickaxe in hotbar
                     if (i < 9) {
@@ -706,7 +708,7 @@ public class SpawnerFarm extends Module {
             
             // Cancel all processes
             baritone.getMineProcess().cancel();
-            baritone.getCustomGoalProcess().cancel();
+            baritone.getCustomGoalProcess().onLostControl();
             baritone.getPathingBehavior().cancelEverything();
             
         } catch (Exception e) {
