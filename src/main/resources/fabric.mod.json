@@ -1,41 +1,34 @@
 {
   "schemaVersion": 1,
-  "id": "glazed",
+  "id": "spawnerfarm",
   "version": "${version}",
-  "name": "Glazed",
-  "description": "An Addon made for donutsmp",
+  "name": "Spawner Farm",
+  "description": "Automated skeleton spawner farming and enemy evasion addon for Meteor Client",
   "authors": [
-    "nnpg"
+    "SpawnerFarm"
   ],
   "contact": {
-    "homepage": "https://glazedclient.com",
-    "repo": "https://github.com/realnnpg/",
-    "discord": "https://discord.gg/TCQDpG8ByY"
-
+    "homepage": "https://meteorclient.com/",
+    "sources": "https://github.com/MeteorDevelopment/meteor-client"
   },
   "license": "GPL-3.0",
-  "icon": "assets/template/icon.png",
+  "icon": "assets/spawnerfarm/icon.png",
   "environment": "client",
   "entrypoints": {
+    "main": [
+      "com.spawnerfarm.SpawnerFarmAddon"
+    ],
     "meteor": [
-      "com.nnpg.glazed.GlazedAddon"
+      "com.spawnerfarm.SpawnerFarmAddon"
     ]
   },
-
-
-  "custom": {
-    "meteor-client:color": "225,25,25",
-    "modmenu": {
-      "links": {
-        "modmenu.website": "https://glazedclient.com",
-        "modmenu.discord": "https://discord.gg/TCQDpG8ByY"
-      }
-    }
-  },
   "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
     "java": ">=21",
-    "minecraft": ["${mc_version}"],
     "meteor-client": "*"
+  },
+  "suggests": {
+    "baritone": "*"
   }
-
 }

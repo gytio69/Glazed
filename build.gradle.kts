@@ -1,16 +1,17 @@
 plugins {
-    id("fabric-loom") version "1.10-SNAPSHOT"
+    id("fabric-loom") version "1.7.3"
+    id("maven-publish")
 }
 
 base {
-    archivesName = properties["archives_base_name"] as String
-    version = properties["mod_version"] as String
-    group = properties["maven_group"] as String
+    archivesName = "spawnerfarm"
 }
 
-
+version = "1.0.0"
+group = "com.spawnerfarm"
 
 repositories {
+    // These repositories are required for Meteor Client and Baritone
     maven {
         name = "meteor-maven"
         url = uri("https://maven.meteordev.org/releases")
@@ -19,65 +20,55 @@ repositories {
         name = "meteor-maven-snapshots"
         url = uri("https://maven.meteordev.org/snapshots")
     }
-
     maven {
         url = uri("https://jitpack.io")
     }
+}
 
+dependencies {
+    // Minecraft and Fabric
+    minecraft("com.mojang:minecraft:1.21.1")
+    mappings("net.fabricmc:yarn:1.21.1+build.3:v2")
+    modImplementation("net.fabricmc:fabric-loader:0.16.0")
+    
+    // Fabric API
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.102.0+1.21.1")
+    
+    // Meteor Client
+    modImplementation("meteordevelopment:meteor-client:1.21.1-SNAPSHOT")
+    
+    // Baritone (available as part of Meteor)
+    modImplementation("meteordevelopment:baritone:1.21.1-SNAPSHOT")
+}
 
-    dependencies {
-        // Fabric
-        minecraft("com.mojang:minecraft:${properties["minecraft_version"] as String}")
-        mappings("net.fabricmc:yarn:${properties["yarn_mappings"] as String}:v2")
-        modImplementation("net.fabricmc:fabric-loader:${properties["loader_version"] as String}")
+loom {
+    accessWidenerPath = file("src/main/resources/spawnerfarm.accesswidener")
+}
 
-        // Meteor
-        modImplementation("meteordevelopment:meteor-client:${properties["minecraft_version"] as String}-SNAPSHOT")
-
-
-        // Baritone
-        modImplementation("meteordevelopment:baritone:${properties["baritone_version"] as String}-SNAPSHOT")
-
-        implementation("com.google.code.gson:gson:2.10.1")
-
-
-
-    }
-
-
-
-    tasks {
-        processResources {
-            val propertyMap = mapOf(
-                "version" to project.version,
-                "mc_version" to project.property("minecraft_version"),
-            )
-
-            inputs.properties(propertyMap)
-
-            filteringCharset = "UTF-8"
-
-            filesMatching("fabric.mod.json") {
-                expand(propertyMap)
-            }
-        }
-
-        jar {
-            val licenseSuffix = project.base.archivesName.get()
-            from("LICENSE") {
-                rename { "${it}_${licenseSuffix}" }
-            }
-        }
-
-        java {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
-        }
-
-        withType<JavaCompile> {
-            options.encoding = "UTF-8"
-            options.release = 21
+tasks {
+    processResources {
+        inputs.property("version", project.version)
+        
+        filesMatching("fabric.mod.json") {
+            expand("version" to project.version)
         }
     }
+
+    withType<JavaCompile> {
+        options.encoding = "UTF-8"
+        options.release = 21
+    }
+
+    jar {
+        from("LICENSE") {
+            rename { "${it}_${base.archivesName.get()}" }
+        }
+    }
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 

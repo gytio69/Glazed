@@ -1,163 +1,211 @@
-# Glazed
-<p align="center">
-  <img src="https://nnpg.dev/Glazedlogo.png" alt="Glazed Addon Banner" width="300"/>
-</p>
+# SpawnerFarm - Meteor Client Addon
 
-<p align="center">
-  <a href="https://github.com/realnnpg/Glazed/releases"><img src="https://img.shields.io/github/downloads/realnnpg/Glazed/total.svg?style=for-the-badge&label=Downloads" alt="Downloads"/></a>
-  <img src="https://img.shields.io/github/stars/realnnpg/Glazed?style=for-the-badge" alt="Stars"/>
-  <img src="https://img.shields.io/github/repo-size/realnnpg/Glazed?style=for-the-badge" alt="Repo Size"/>
-  <a href="https://discord.gg/TCQDpG8ByY"><img src="https://img.shields.io/discord/1282076342908747879?color=%237289DA&label=Discord&logo=discord&logoColor=white&style=for-the-badge" alt="Discord"/></a>
-</p>
+**SpawnerFarm** is a comprehensive Minecraft Meteor Client addon that automates skeleton spawner farming with advanced enemy evasion capabilities. This addon integrates with Baritone for intelligent pathfinding and provides a complete farming solution.
 
----
+## 🎯 Features
 
-## 🍩 DonutSMP Meteor Client Addon
+- **Automatic Spawner Detection**: Uses Baritone to automatically find nearby spawners or accepts manual coordinates
+- **Silk Touch Verification**: Automatically detects and selects Silk Touch pickaxes from inventory
+- **Shift-Mining for 64 Spawners**: Holds shift while mining to get 64 spawners per break (server plugin compatibility)
+- **Automated Storage**: Automatically stores collected spawners in nearby Ender Chests
+- **Enemy Player Evasion**: Detects nearby enemy players and triggers emergency evasion protocol
+- **Complete Baritone Integration**: Uses Baritone for all pathfinding and movement
+- **Configurable Settings**: Extensive GUI settings for customization
 
-**Glazed** is a free Meteor Client addon designed specifically for the **DonutSMP** server. I made this to automate the boring and repetitive tasks I kept doing in-game and to give others access to high-quality tools **without paying**. I've seen many paid clients that do less than this one — this is my free alternative.
+## 📋 Requirements
 
+- **Minecraft**: 1.21.4
+- **Fabric Loader**: 0.16.9 or newer
+- **Fabric API**: 0.110.5+1.21.4 or compatible
+- **Meteor Client**: 0.5.8-SNAPSHOT or compatible
+- **Baritone**: 1.10.2 or compatible
+- **Java**: 21 or newer
 
+## 🛠️ Installation Instructions (For Non-Coders)
 
----
+### Option 1: Use Pre-compiled JAR (If Available)
 
-## 🚀 Features
+1. Download the latest `spawnerfarm-1.0.0.jar` file from releases
+2. Place it in your Minecraft `.minecraft/mods` folder
+3. Ensure you have all required dependencies installed
+4. Launch Minecraft with Fabric and Meteor Client
+5. Open Meteor Client GUI (Right Shift by default)
+6. Find "Spawner Farm" category and configure the module
 
-| Module Name      | Description                                                           | Status        |
-|------------------|-----------------------------------------------------------------------|---------------|
-| Elytra Swap      | Automatically swaps between Elytra and Chestplate based on context    | ✅ Added       |
-| Auto Inv Totem   | Automatically puts a Totem into your offhand when inventory opens     | ✅ Added       |
-| Auto Firework    | Automatically uses fireworks for elytra flying.                       | ✅ Added       |
-| Cord Snapper     | Instantly copies your current coordinates to clipboard                | ✅ Added       |
-| Pearl Throw      | Instantly throws a pearl                                              | ✅ Added       |
-| Player Detection | Detects when players are rendered                                     | ✅ Added       |
-| RTP Base Finder  | Uses /rtp and checks for bases using storage/spawner detection        | ✅ Added       |
-| Anti Trap        | Allows you to escape from armor stands and chest minecarts.           | ✅ Added       |
-| AHSniper         | Refreshes and snipes underpriced items from the auction house         | ✅ Added       |
-| SpawnerProtect   | Mines all your spawners and stores them when a player is nearby       | ✅ Added       |
-| RTPer            | Automatically RTPs until near specified coordinates                   | ✅ Added       |
-| RTPTunnelMiner   | RTPs, mines to a Y level, and then uses #tunnel to mine horizontally. | ✅ Added       |
-| Auto Sell        | Automatically sells sea pickles via /sell                             | ✅ Added       |
-| Xray             | Xray for DonutSMP                                                     | 🟠 Coming soon |
-| Bone Dropper     | Automatically drops bones collected from spawners                     | 🟠 Coming soon |
-| Auto Order       | Automatically executes /order for configured items                    | 🟠 Coming soon |
-| TPSniper         | Automatically spams specific players with /tpa or /tpahere requests   | ❌ Not Yet     |
-| ShulkerOrder     | Buys and then /orders the shulkers                                    | ❌ Not Yet     |
-| OrderSniper      | Snipes for good order prices and sells your stuff                     | ❌ Not Yet     |
+### Option 2: Compile from Source
 
+#### Step 1: Install Required Software
 
----
+1. **Install Java 21**:
+   - Download from [Oracle](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) or [OpenJDK](https://openjdk.org/projects/jdk/21/)
+   - Make sure `java -version` shows version 21
 
-## 🔗 Great Modules to Pair With This Addon
+2. **Install Git** (if not already installed):
+   - Download from [git-scm.com](https://git-scm.com/downloads)
 
-Pair your DonutSMPAddon setup with these built-in Meteor modules for max efficiency:
+#### Step 2: Download the Source Code
 
-- `Auto Totem` – Keeps you alive during PvP
-- `Auto Replenish` – Automatically restocks blocks/tools
-- `Auto Eat` – Keeps your hunger up
-- `Fast Place` – Places blocks faster than vanilla
-- `Auto Tool` – Automatically switches to the best tool
-- `Freecam` – View surroundings without moving
-- `Storage ESP` – Highlights chests, shulkers, barrels
-- `Tracers` – Draws lines to players, mobs, storage
+1. Open Command Prompt/Terminal
+2. Navigate to where you want to download the project:
+   ```bash
+   cd C:\Users\YourName\Desktop
+   ```
+3. Clone or download this project to your computer
 
----
+#### Step 3: Compile the Mod
 
-## ❓ FAQ
+1. Open Command Prompt/Terminal in the project folder
+2. On Windows, run:
+   ```bash
+   gradlew.bat build
+   ```
+3. On macOS/Linux, run:
+   ```bash
+   ./gradlew build
+   ```
 
-<details>
-  <summary><strong>🔒 Is it safe to use?</strong></summary>
-  <p>
-    Yes, it's completely open-source. There are no token loggers, backdoors, or obfuscation. If you're unsure, feel free to inspect the code or compile it yourself.
-  </p>
-</details>
+4. Wait for compilation to complete (this may take 5-10 minutes on first run)
 
-<details>
-  <summary><strong>❓ Why is it free?</strong></summary>
-  <p>
-    I made this addon to help DonutSMP players automate boring tasks without paying ridiculous prices for private clients. It's a free, powerful alternative.
-  </p>
-</details>
+#### Step 4: Find Your Compiled JAR
 
-<details>
-  <summary><strong>📦 Can I use this on other servers?</strong></summary>
-  <p>
-    This addon was made specifically for DonutSMP, and most features are designed to work only there (e.g., Auction Sniper, Auto Sell, RTP Base Finder). While some basic modules may still work elsewhere, the full functionality is best experienced on DonutSMP.
-  </p>
-</details>
+After successful compilation, find your mod file at:
+```
+build/libs/spawnerfarm-1.0.0.jar
+```
 
-<details>
-  <summary><strong>🛠️ How do I get updates?</strong></summary>
-  <p>
-    Join the <a href="https://discord.gg/TCQDpG8ByY">Discord server</a> for update announcements, changelogs, and early access to new modules. You can also star/watch the GitHub repo.
-  </p>
-</details>
+#### Step 5: Install the Mod
 
+1. Copy `spawnerfarm-1.0.0.jar` to your Minecraft `.minecraft/mods` folder
+2. Make sure you have Meteor Client and Baritone installed
+3. Launch Minecraft with Fabric
+4. The addon will be automatically loaded with Meteor Client
 
+## ⚙️ Configuration
 
----
+### Basic Setup
 
-## 📢 Join the Discord
+1. Open Meteor Client GUI (Right Shift by default)
+2. Navigate to "Spawner Farm" category
+3. Click on "Spawner Farm" module to configure:
 
-> 💬 **[Join the Discord](https://discord.gg/TCQDpG8ByY)** for:
-> - 💸 **Giveaways**
-> - 📢 **Announcements**
-> - 🛠️ **Support**
-> - 💡 **Suggestions**
+### Settings Overview
 
----
+#### Coordinates Tab
+- **Manual Coordinates**: Toggle to use manual spawner coordinates
+- **Spawner X/Y/Z**: Manual spawner position (only visible when manual mode enabled)
 
-## 📥 Installation
+#### General Tab
+- **Target Spawners**: Number of spawners to collect (0 = unlimited)
+- **Ender Chest X/Y/Z**: Position of your Ender Chest for storage
 
-📺 Video Tutorial:
-Coming soon
-[Watch how to install everything](https://youtu.be/@realnnpg)
+#### Evasion Tab
+- **Enable Evasion**: Toggle automatic enemy player evasion
+- **Threat Range**: Distance in blocks to consider players a threat (default: 20)
 
-📝 Written Instructions:
+### Usage Instructions
 
-1. 🔽 **Download Meteor Client**  
-   From: https://meteorclient.com/
+1. **Place an Ender Chest** near your spawner area
+2. **Configure coordinates** in the module settings:
+   - Either enable manual coordinates and enter spawner position
+   - Or leave manual mode off for automatic detection
+3. **Set Ender Chest coordinates** to match your chest location
+4. **Ensure you have a Silk Touch pickaxe** in your inventory
+5. **Enable the module** by clicking it in the Meteor GUI or pressing the assigned key
 
-1. 🔽 **Download Baritone**  
-   From: https://meteorclient.com/
+The module will automatically:
+- Find/path to the spawner
+- Verify your tools
+- Mine spawners with shift for 64-stacks
+- Store them in the Ender Chest
+- Monitor for enemy players and evade if necessary
 
-3. 🧵 **Install Fabric Loader**  
-   Download from: https://fabricmc.net/use/
+## 🔧 Troubleshooting
 
-4. 🧩 **Put Meteor Client and this addon in `.minecraft/mods`**
-    - Locate your `.minecraft` folder (type `%appdata%` on Windows search)
-    - Drop both `.jar` files inside `/mods`
+### Common Issues
 
-5. 🚀 **Launch Minecraft with the Fabric profile**  
-   Open the Meteor GUI with `Right Shift` and enjoy!
+**"No Silk Touch pickaxe found!"**
+- Make sure you have a pickaxe with Silk Touch enchantment in your inventory
+- The addon will automatically move it to your hotbar if needed
 
----
+**"Failed to path to spawner"**
+- Check that Baritone is properly installed and working
+- Verify spawner coordinates are correct
+- Make sure there's a valid path to the spawner
 
-## 🧠 Credits
+**"No spawners found nearby!"**
+- Enable manual coordinates and input exact spawner position
+- Make sure you're within reasonable distance of spawners
+- Check that the spawner actually exists at the location
 
-Huge thanks to the projects that make this addon possible:
+**Module won't enable**
+- Ensure all dependencies are installed (Meteor Client, Baritone, Fabric API)
+- Check Minecraft version compatibility
+- Look for error messages in the console
 
-- [Meteor Client](https://github.com/MeteorDevelopment/meteor-client)
-- [Meteor Rejects](https://github.com/AntiCope/meteor-rejects)
-- [Baritone](https://github.com/cabaletta/baritone)
-- [FabricMC](https://fabricmc.net/)
-- [Claude AI](https://claude.ai/)
-- [szpuszi](https://github.com/szpuszi)
-- [S1ilvr](https://github.com/S1ilvr)
-- [dankor](https://github.com/dankor1337)
-- [Kez]
-- [Potato]
-- [kxusk]
-- [kq]
-- [some random] 
----
+### Compatibility Notes
+
+- This addon requires specific server plugins that make spawners:
+  - Breakable with Silk Touch
+  - Instantly go to inventory (no drops)
+  - Stackable up to 10,000
+  - Yield 64 spawners when mined while sneaking
+
+- If your server doesn't have these plugins, the addon may not work as expected
+
+## 🚨 Safety Features
+
+### Enemy Player Evasion
+
+The addon includes comprehensive evasion features:
+
+1. **Continuous Monitoring**: Scans for enemy players every second
+2. **Threat Detection**: Configurable range for threat detection
+3. **Emergency Protocol**: When triggered:
+   - Immediately cancels all Baritone processes
+   - Attempts to store current spawners in Ender Chest
+   - Disconnects from the server for safety
+   - Disables the module
+
+### Risk Mitigation
+
+- Always test the addon in single-player or safe environments first
+- Configure threat range appropriately for your server
+- Ensure Ender Chest is placed securely
+- Keep emergency disconnect in mind
+
+## 📝 Development Notes
+
+This addon is built using:
+- **Fabric Mod Development Kit** for Minecraft integration
+- **Meteor Client Addon API** for module framework and GUI
+- **Baritone API** for pathfinding and automation
+- **Gradle** for build management
+
+### Project Structure
+```
+src/main/java/com/spawnerfarm/
+├── SpawnerFarmAddon.java          # Main addon class
+└── modules/
+    └── SpawnerFarm.java           # Core farming module
+
+src/main/resources/
+├── fabric.mod.json                # Mod metadata
+├── spawnerfarm.accesswidener      # Access wideners
+└── assets/spawnerfarm/
+    └── icon.png                   # Mod icon
+```
+
+## 📜 License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
 ## ⚠️ Disclaimer
 
-This project is provided **as-is** with **no warranty** of any kind.
+This addon is for educational purposes. Please ensure compliance with your server's rules and Minecraft's Terms of Service. The developers are not responsible for any consequences resulting from the use of this addon.
 
-> I am **not responsible** for any **bans, data loss, in-game money loss**, or **any other consequences** that may arise from using this addon.
->
-> **Use at your own risk.** If you lose items, get banned, or otherwise suffer any kind of issue — I simply don’t care. You’ve been warned. Use an alt
+---
+
+**Support**: For issues or questions, please check the troubleshooting section above or consult the Meteor Client community.
 
 
 
