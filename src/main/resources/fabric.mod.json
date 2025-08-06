@@ -23,10 +23,9 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.16.0",
-    "minecraft": "~1.21.1",
-    "java": ">=21",
-    "meteor-client": "*"
+    "fabricloader": ">=0.16.12",
+    "minecraft": "~1.21.4",
+    "java": ">=21"
   },
   "suggests": {
     "baritone": "*"
